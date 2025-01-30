@@ -9,7 +9,7 @@ export function BusySlider() {
   const getImageSrc = (val: number) => {
     if (val < 25) return "/busy-1.png";
     if (val < 50) return "/busy-2.png";
-    if (val < 75) return "/busy-3.png";
+    if (val <= 75) return "/busy-3.png";
     return "/busy-4.png";
   };
 
