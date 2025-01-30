@@ -32,6 +32,39 @@ export function BusySlider() {
             maxWidth: window.innerWidth > 768 ? "2388px" : "none",
           }}
         />
+        {/* Not sure if this works, but the idea is to force next.js to render and cache these images??? */}
+        <Image
+          src="/busy-1.png"
+          alt="Preload 1"
+          width={2388}
+          height={1668}
+          priority={false}
+          style={{ display: "none" }}
+        />
+        <Image
+          src="/busy-2.png"
+          alt="Preload 2"
+          width={2388}
+          height={1668}
+          priority={true}
+          style={{ display: "none" }}
+        />
+        <Image
+          src="/busy-3.png"
+          alt="Preload 3"
+          width={2388}
+          height={1668}
+          priority={false}
+          style={{ display: "none" }}
+        />
+        <Image
+          src="/busy-4.png"
+          alt="Preload 4"
+          width={2388}
+          height={1668}
+          priority={false}
+          style={{ display: "none" }}
+        />
       </div>
       {value}
       <div className="p-4">
