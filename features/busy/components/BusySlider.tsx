@@ -15,15 +15,36 @@ export function BusySlider() {
 
   return (
     <>
-      <Image src={getImageSrc(value)} alt="Dynamic" width={300} height={300} />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Image
+          src={getImageSrc(value)}
+          alt="Dynamic"
+          width={2388}
+          height={1668}
+          style={{
+            width:
+              window.innerWidth > 1024
+                ? "50%"
+                : window.innerWidth > 768
+                ? "80%"
+                : "150vw",
+            height: "auto",
+            maxWidth: window.innerWidth > 768 ? "2388px" : "none",
+          }}
+        />
+      </div>
       {value}
-      <Slider
-        onValueChange={(val) => setValue(val[0])}
-        defaultValue={[25]}
-        max={100}
-        step={25}
-      />
-      <Button variant="outline">Button</Button>
+      <div className="p-4">
+        <Slider
+          onValueChange={(val) => setValue(val[0])}
+          defaultValue={[25]}
+          max={100}
+          step={25}
+        />
+      </div>
+      <div className="flex justify-center">
+        <Button variant="outline">Submit</Button>
+      </div>
     </>
   );
 }
