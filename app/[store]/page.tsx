@@ -78,6 +78,7 @@ export default async function BusyPage({
       <BusySliderArea
         storeid={id}
         busyValue={busyData?.value}
+        storeLocation={storeData.storeLocation}
         initialState={initialState}
         lastSubmittedTime={busyData?.createdDate}
       ></BusySliderArea>
