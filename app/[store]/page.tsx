@@ -44,7 +44,7 @@ export default async function BusyPage({
     initialState = "null";
   } else if (
     new Date(latestBusy.createdDate).getTime() <
-    new Date().getTime() - 1000 * 60 * 5
+    new Date().getTime() - 1000 * 60 * 30
   ) {
     initialState = "stale";
   } else if (
