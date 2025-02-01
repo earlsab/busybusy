@@ -12,6 +12,12 @@ export default function StoreDetails({
   location,
   link,
   type,
+}: {
+  title: string;
+  description: string;
+  location: string;
+  link: string;
+  type: string;
 }) {
   // Get Latest Entry for Shop
   return (

@@ -14,9 +14,9 @@ export function BusySliderArea({
   lastSubmittedTime,
 }: {
   storeid: string;
-  busyValue: number;
-  state: string;
-  lastSubmittedTime: Date;
+  busyValue: number | undefined;
+  initialState: string;
+  lastSubmittedTime: Date | undefined;
 }) {
   //   const [value, setValue] = useState(25);
   // const [lastSubmitTime, setLastSubmitTime] = useAtom(busyLastSubmitTime);
@@ -24,7 +24,7 @@ export function BusySliderArea({
   const [state, setState] = useState(initialState);
 
   useEffect(() => {
-    setValue(busyValue);
+    setValue(busyValue ?? 25);
   }, []);
 
   function onSubmit() {
@@ -51,7 +51,8 @@ export function BusySliderArea({
   } else if (state === "stale") {
     return (
       <div>
-        Stale Last Submitted{getTimeDiff(lastSubmittedTime)}
+        Stale Last Submitted{" "}
+        {lastSubmittedTime ? getTimeDiff(lastSubmittedTime) : " N/A"}
         <Button onClick={() => addBusy()} variant="outline">
           Add Info
         </Button>

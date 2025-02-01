@@ -42,9 +42,15 @@ export default async function BusyPage({
   let initialState = "null";
   if (!latestBusy) {
     initialState = "null";
-  } else if (latestBusy.createdDate < new Date().getTime() - 1000 * 60 * 5) {
+  } else if (
+    new Date(latestBusy.createdDate).getTime() <
+    new Date().getTime() - 1000 * 60 * 5
+  ) {
     initialState = "stale";
-  } else if (latestBusy.createdDate > new Date().getTime() - 1000 * 60 * 5) {
+  } else if (
+    new Date(latestBusy.createdDate).getTime() >
+    new Date().getTime() - 1000 * 60 * 5
+  ) {
     initialState = "read";
   }
 
