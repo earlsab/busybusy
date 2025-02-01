@@ -1,6 +1,7 @@
 import mongoose, { Document, Schema, Model } from "mongoose";
 
 export interface IBusy extends Document {
+  entryType: string; // owner or user
   storeid: string;
   value: number; // 0-4
   createdDate: Date;
@@ -8,6 +9,10 @@ export interface IBusy extends Document {
 
 const BusySchema = new Schema<IBusy>(
   {
+    entryType: {
+      type: String,
+      required: true,
+    },
     storeid: {
       type: String,
       required: true,
@@ -24,6 +29,6 @@ const BusySchema = new Schema<IBusy>(
   { collection: "busy" }
 );
 const Busy: Model<IBusy> =
-  mongoose.models.User || mongoose.model<IBusy>("User", BusySchema);
+  mongoose.models.Busy || mongoose.model<IBusy>("Busy", BusySchema);
 
 export default Busy;
