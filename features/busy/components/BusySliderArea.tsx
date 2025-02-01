@@ -30,6 +30,7 @@ export function BusySliderArea({
   const [latitude, longitude] = storeLocation.split(",").map(Number);
   const parsedStoreLocation = { latitude, longitude };
 
+  // https://stackoverflow.com/a/73696014
   useEffect(() => {
     setValue(busyValue ?? 25);
     if ("geolocation" in navigator) {
@@ -57,7 +58,7 @@ export function BusySliderArea({
       "K"
     );
     setDistance(distance);
-    return distance < 0.05;
+    return distance < 0.05; // 50 meters
   }
 
   const getDistance = (
