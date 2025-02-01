@@ -28,7 +28,14 @@ export function BusySliderArea({
   }, []);
 
   function onSubmit() {
-    create(storeid, value);
+    try {
+      create(storeid, value);
+      setState("read");
+    } catch {
+      console.log("error");
+    }
+  }
+  function onCancel() {
     setState("read");
   }
 
@@ -58,9 +65,25 @@ export function BusySliderArea({
         </Button>
       </div>
     );
-  } else if (state === "read" || state === "submit") {
+  } else if (state === "read") {
     return (
       <>
+        <p>Current Busy Level: </p>
+        {value}
+        <div className="p-4"></div>
+        <Button onClick={() => addBusy()} variant="outline">
+          Add Info
+        </Button>
+        {lastSubmittedTime && (
+          <div>Last Submitted{getTimeDiff(lastSubmittedTime)}</div>
+        )}
+      </>
+    );
+  } else if (state === "submit") {
+    return (
+      <>
+        <p>Previous Values: {busyValue ? busyValue : "N/A"}</p>
+        <p>Current Value: {value}</p>
         <div className="p-4">
           <Slider
             onValueChange={(val) => setValue(val[0])}
@@ -73,6 +96,9 @@ export function BusySliderArea({
           <div>Last Submitted{getTimeDiff(lastSubmittedTime)}</div>
         )}
         <div className="flex justify-center">
+          <Button onClick={() => onCancel()} variant="outline">
+            Cancel
+          </Button>
           <Button onClick={() => onSubmit()} variant="outline">
             Submit
           </Button>
