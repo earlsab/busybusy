@@ -41,7 +41,7 @@ export default async function BusyPage({
 
   let initialState = "null";
   if (!latestBusy) {
-    initialState = "null";
+    initialState = "submit";
   } else if (
     new Date(latestBusy.createdDate).getTime() <
     new Date().getTime() - 1000 * 60 * 30
