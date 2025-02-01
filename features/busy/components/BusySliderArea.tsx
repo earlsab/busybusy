@@ -61,6 +61,7 @@ export function BusySliderArea({
     return distance < 0.05; // 50 meters
   }
 
+  // https://stackoverflow.com/a/63743229
   const getDistance = (
     lat1: number,
     lon1: number,
