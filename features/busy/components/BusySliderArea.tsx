@@ -25,7 +25,7 @@ export function BusySliderArea({
   const [value, setValue] = useAtom(busyValueAtom);
   const [state, setState] = useState(initialState);
   const [location, setLocation] = useState({ latitude: 0, longitude: 0 });
-  const [distance, setDistance] = useState();
+  const [distance, setDistance] = useState(999);
   const [canSubmitBool, setCanSubmit] = useState(false);
   const [latitude, longitude] = storeLocation.split(",").map(Number);
   const parsedStoreLocation = { latitude, longitude };
