@@ -26,7 +26,7 @@ export default function StoreDetails({
         <h1>{title}</h1>
         <p>{description}</p>
         <div className="location">
-          <h2>Location</h2>
+          <h2>Store Location</h2>
           <p>{location}</p>
         </div>
         <div className="social-media">
