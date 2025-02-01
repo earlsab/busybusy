@@ -5,7 +5,10 @@ import mongoosePaginate from "mongoose-paginate-v2";
 interface StoreData {
   storeName: string;
   storeDescription: string;
+  storeLink: string;
+  storeLocation: string;
   storeImage: string;
+  storeType: string;
   metadata: {
     admin: string[];
     createdDate: Date;
@@ -26,7 +29,19 @@ const StoreSchema = new Schema<StoreDocument>(
       type: String,
       required: true,
     },
+    storeLocation: {
+      type: String,
+      required: true,
+    },
+    storeLink: {
+      type: String,
+      required: false,
+    },
     storeImage: {
+      type: String,
+      required: true,
+    },
+    storeType: {
       type: String,
       required: true,
     },
@@ -48,12 +63,12 @@ const StoreSchema = new Schema<StoreDocument>(
 StoreSchema.plugin(mongoosePaginate);
 
 // Create and export the Paper model
-const Paper =
-  (mongoose.models.Paper as mongoose.PaginateModel<StoreDocument>) ||
+const Store =
+  (mongoose.models.Store as mongoose.PaginateModel<StoreDocument>) ||
   mongoose.model<StoreDocument, mongoose.PaginateModel<StoreDocument>>(
-    "Paper",
+    "Store",
     StoreSchema,
-    "papers" // looks to be responsible to accessing the collections in mongodb
+    "stores" // looks to be responsible to accessing the collections in mongodb
   );
 
-export default Paper;
+export default Store;
