@@ -174,7 +174,7 @@ export function BusySliderArea({
             ? " Yes. Distance is " + distance + " km."
             : "No. Distance is " +
               distance +
-              " km. You need to be within 500 meters of the store."}
+              " km. You need to be within 50 meters of the store."}
         </p>
         <p>
           Location Status:
