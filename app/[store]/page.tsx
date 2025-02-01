@@ -43,14 +43,12 @@ export default async function BusyPage({
   if (!latestBusy) {
     initialState = "submit";
   } else if (
+    // if more than 30 mins ago = stale
     new Date(latestBusy.createdDate).getTime() <
     new Date().getTime() - 1000 * 60 * 30
   ) {
     initialState = "stale";
-  } else if (
-    new Date(latestBusy.createdDate).getTime() >
-    new Date().getTime() - 1000 * 60 * 5
-  ) {
+  } else {
     initialState = "read";
   }
 
