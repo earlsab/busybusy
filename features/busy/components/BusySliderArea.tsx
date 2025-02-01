@@ -57,7 +57,7 @@ export function BusySliderArea({
       "K"
     );
     setDistance(distance);
-    return distance < 0.5;
+    return distance < 0.1;
   }
 
   const getDistance = (
@@ -169,7 +169,7 @@ export function BusySliderArea({
         <p>
           Can Submit?
           {canSubmitBool
-            ? " Yes"
+            ? " Yes. Distance is " distance + " km."
             : "No. Distance is " +
               distance +
               " km. You need to be within 500 meters of the store."}
